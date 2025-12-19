@@ -3,11 +3,15 @@ dotenv.config();
 
 import { transporter } from "./config/mailer.js";
 
-await transporter.sendMail({
-  from: process.env.EMAIL_USER,
-  to: "Krishchouhan468@gmail.com",
-  subject: "OTP Test",
-  text: "OTP system is working 🚀",
-});
+if (process.env.NODE_ENV !== "production") {
+  await transporter.sendMail({
+    from: process.env.EMAIL_USER,
+    to: "Krishchouhan468@gmail.com",
+    subject: "OTP Test",
+    text: "OTP system is working 🚀",
+  });
 
-console.log("MAIL SENT");
+  console.log("MAIL SENT (LOCAL)");
+} else {
+  console.log("📧 MAIL SKIPPED IN PRODUCTION");
+}
