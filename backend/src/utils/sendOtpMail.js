@@ -1,9 +1,9 @@
-import { transporter } from "../config/mailer.js";
+import transporter from "../config/mailer.js";
 
 export const sendOtpMail = async (email, otp) => {
   try {
     await transporter.sendMail({
-      from: `"Sweet Shop 🍬" <${process.env.EMAIL_USER}>`,
+      from: "Sweet Shop <krishchouhan468@gmail.com>", // ✅ VERIFIED SENDER (Brevo)
       to: email,
       subject: "Your OTP Code",
       html: `
@@ -18,7 +18,7 @@ export const sendOtpMail = async (email, otp) => {
 
     console.log("📩 OTP sent to", email);
   } catch (err) {
-    console.error("❌ OTP MAIL ERROR:", err);
+    console.error("❌ OTP MAIL ERROR (sendOtpMail):", err);
     throw err;
   }
 };

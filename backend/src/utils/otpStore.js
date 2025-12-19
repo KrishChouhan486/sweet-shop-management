@@ -10,7 +10,10 @@ export const saveOTP = (email, otp) => {
 export const verifyOTP = (email, otp) => {
   const data = store.get(email);
   if (!data) return false;
-  if (Date.now() > data.expiresAt) return false;
+  if (Date.now() > data.expiresAt) {
+    store.delete(email);
+    return false;
+  }
   return data.otp === otp;
 };
 
