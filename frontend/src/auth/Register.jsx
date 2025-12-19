@@ -247,7 +247,7 @@ const Register = () => {
     }
   };
   return (
-  <GoogleOAuthProvider clientId="543384475421-5car7anockgvbksvo7qq7h73b9sglkfj.apps.googleusercontent.com">
+
       <main className="min-h-screen bg-[#0B1120] text-slate-50 flex items-center justify-center p-4 relative overflow-hidden">
         
         {/* Ambient Background */}
@@ -403,7 +403,7 @@ const Register = () => {
           </div>
         </div>
       </main>
-    </GoogleOAuthProvider>
+   
   );
 };
 
